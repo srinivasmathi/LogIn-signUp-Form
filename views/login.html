@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login Form</title>
+</head>
+<body>
+    <div class="background login-container">
+        <h1>Login</h1>
+        <form action="/secrets">
+            <input type="text" placeholder="Username">
+            <div class="password-wrapper">
+                <input id="password" type="password" placeholder="Password">
+                <button type="button" onclick="togglePasswordVisibility()">
+                    <i id="password-button" class="toggle-button fa-solid fa-eye" style="color: gray;"></i>
+                </button>
+            </div>
+            <button class="login-button" type="submit">Log in</button>
+            <p>-------------- or --------------</p>
+            <button class="google-button"type="button" onclick='window.open("https://www.google.com");'><i class="fa-brands fa-google"></i> Log in with Google</button>
+            <button class="facebook-button" type="button" onclick='window.open("https://www.facebook.com");'><i class="fa-brands fa-facebook-f"></i> Log in with Facebook</button>
+            <p>Don't have an Account? <a href="/register">Sign up</a></p>
+        </form>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
