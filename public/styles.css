@@ -108,7 +108,7 @@ form p{
     cursor: pointer;
 }
 
-#email-msg,#password-msg,#pw-validation-msg{
+#email-msg,#password-msg,#pw-validation-msg,#error-msg,#filled{
     display: none;
     color: red;
     margin: 0;

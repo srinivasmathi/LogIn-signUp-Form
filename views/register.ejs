@@ -13,15 +13,18 @@
 <body>
     <div class="register-container background">
         <h1>Create an Account</h1>
-        <form action="/secrets">
-            <input type="text" placeholder="Username">
+        <form method="post" action="/register" id="form">
+            <input type="text" placeholder="Username" name="username">
             <div class="email-wrapper">
-                <input id="email" type="text" placeholder="Email ID" oninput="checkEMail()">
+                <input id="email" type="text" placeholder="Email ID" oninput="checkEMail()" name="email">
+                <% if(typeof errorMessage !== 'undefined') { %>
+                    <p id="error-msg" style="display : block"><%= errorMessage %></p>
+                <% } %>
                 <p id="email-msg"></p>
                 <i id="check1" class="fa-solid fa-check" style="color: #3d8361;"></i>
             </div>
             <div class="password-wrapper">
-                <input id="password" type="password" placeholder="Password" oninput="validatePassword()">
+                <input id="password" type="password" placeholder="Password" oninput="validatePassword()" name="password">
                 <button type="button" onclick="togglePasswordVisibility()">
                     <i id="password-button" class="toggle-button fa-solid fa-eye" style="color: gray;"></i>
                 </button>
@@ -32,7 +35,8 @@
                 <p id="password-msg"></p>
                 <i id="check2" class="fa-solid fa-check" style="color: #3d8361;"></i>
             </div>
-            <button id="submit-button" class="register-button" type="submit">Register</button>
+            <button id="submit-button" class="register-button" type="submit" disabled>Register</button>
+            <p id="filled"></p>
             <p>----------------or--------------</p>
             <button id="google-button" type="button" class="google-button"><i class="fa-brands fa-google"></i> Sign up with Google</button>
             <button id="facebook-button" type="button" class="facebook-button"><i class="fa-brands fa-facebook-f"></i> Sign up with Facebook</i></button>

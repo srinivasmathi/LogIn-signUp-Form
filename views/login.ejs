@@ -13,10 +13,13 @@
 <body>
     <div class="background login-container">
         <h1>Login</h1>
-        <form action="/secrets">
-            <input type="text" placeholder="Username">
+        <form method="post" action="/">
+            <input type="text" placeholder="Email ID" name="email">
+            <% if (typeof errorMessage !== 'undefined') { %>
+                <p id="error-msg" style="display : block"><%= errorMessage %></p>
+            <% } %>
             <div class="password-wrapper">
-                <input id="password" type="password" placeholder="Password">
+                <input id="password" type="password" placeholder="Password" name="password">
                 <button type="button" onclick="togglePasswordVisibility()">
                     <i id="password-button" class="toggle-button fa-solid fa-eye" style="color: gray;"></i>
                 </button>

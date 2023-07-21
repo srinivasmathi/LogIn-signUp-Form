@@ -17,11 +17,13 @@ const userSchema = new mongoose.Schema({
     facebookID : {type:String},
     username : {type:String},
     password : {type:String},
-    email    : {type:String,unique : true}
+    email    : {type:String, unique : true,sparse : true}
 });
 
 userSchema.plugin(findOrCreate);
-userSchema.plugin(passportLocalMongoose);
+
+//for local authentication (username password hashing and salting)
+userSchema.plugin(passportLocalMongoose,{usernameField : 'email'});
 
 const User = mongoose.model('Users',userSchema);
 
@@ -72,3 +74,10 @@ passport.serializeUser(function(user,done){
 passport.deserializeUser(function(user,done){
     return done(null,user);
 })
+
+//-----------------------local authentication----------------------------//
+
+module.exports = User;
+
+
+
